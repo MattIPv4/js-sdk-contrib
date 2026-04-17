@@ -110,18 +110,18 @@ describe('Environment Variable Provider', () => {
     });
 
     it('should return 1', async () => {
-      process.env['OBJ_VALUE'] = 'true';
+      process.env['OBJ_VALUE'] = '1';
       await expect(envVarProvider.resolveObjectEvaluation('obj-value')).resolves.toMatchObject({
         reason: 'STATIC',
-        value: true,
+        value: 1,
       });
     });
 
     it('should return openfeature', async () => {
-      process.env['OBJ_VALUE'] = 'true';
+      process.env['OBJ_VALUE'] = '"openfeature"';
       await expect(envVarProvider.resolveObjectEvaluation('obj-value')).resolves.toMatchObject({
         reason: 'STATIC',
-        value: true,
+        value: 'openfeature',
       });
     });
 
